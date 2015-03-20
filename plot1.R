@@ -6,8 +6,8 @@ source("loadAndCleanData.R")
 png(filename = "plot1.png")
 
 ## Plot construction
-pm25Emission <- aggregate(NEI$Emissions,
-                          by = list(NEI$year),
+pm25Emission <- aggregate(Emissions ~ year,
+                          data = NEI,
                           FUN = sum)
 barplot(pm25Emission$x,
         names.arg = pm25Emission$Group.1,
@@ -17,6 +17,3 @@ barplot(pm25Emission$x,
 ## Close device
 dev.off()
 
-## Instead of data...by into aggregate function
-## use a formula:
-aggregate(Emissions ~ year, data = NEI, FUN = sum)
