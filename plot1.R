@@ -9,8 +9,8 @@ png(filename = "plot1.png")
 pm25Emission <- aggregate(Emissions ~ year,
                           data = NEI,
                           FUN = sum)
-barplot(pm25Emission$x,
-        names.arg = pm25Emission$Group.1,
+barplot(pm25Emission$Emissions,
+        names.arg = pm25Emission$year,
         main = "pm2.5 Total emission",
         ylab = "pm2.5 emission", xlab = "year")
 
